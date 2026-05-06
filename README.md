@@ -78,6 +78,23 @@ npx expo start
 
 ## 📸 Screenshots
 
+<p align="center">
+  <img src="assets/screenshots/home_2.PNG" width="260"/>
+  <img src="assets/screenshots/home_1.PNG" width="260"/>
+  <img src="assets/screenshots/catalogue.PNG" width="260"/>
+</p>
+
+<p align="center">
+  <img src="assets/screenshots/coursepage.PNG" width="260"/>
+  <img src="assets/screenshots/history.PNG" width="260"/>
+  <img src="assets/screenshots/profile.PNG" width="260"/>
+</p>
+
+<p align="center">
+  <img src="assets/screenshots/notifications.PNG" width="260"/>
+  <img src="assets/screenshots/settings.PNG" width="260"/>
+</p>
+
 ![Login](assets/screenshots/login.PNG)
 
 ![HomePage](assets/screenshots/home_2.PNG)
