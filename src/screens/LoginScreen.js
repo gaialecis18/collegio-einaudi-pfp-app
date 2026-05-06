@@ -29,7 +29,7 @@ export default function LoginScreen({ navigation }) {
               <Ionicons name="school" size={36} color="#fff" />
             </View>
             <Text style={styles.logoTitle}>Collegio Einaudi</Text>
-            <Text style={styles.logoSub}>STUDENT FORMATION PORTAL</Text>
+            <Text style={styles.logoSub}>TRAINING STUDENT PORTAL</Text>
           </View>
 
           <View style={styles.card}>
