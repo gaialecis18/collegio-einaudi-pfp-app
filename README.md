@@ -71,12 +71,25 @@ npm install
 ```bash
 npx expo start
 ```
-
+4. Login:
+* username: generic string;
+* password: generic string.
 ---
 
 ## 📸 Screenshots
 
-TO BE ADDED
+![Login](assets/screenshots/login.PNG)
+
+![HomePage](assets/screenshots/home_2.PNG)
+![HomePage](assets/screenshots/home_1.PNG)
+
+![Catalogue](assets/screenshots/catalogue.PNG)
+![Course Detail](assets/screenshots/coursepage.PNG)
+![History](assets/screenshots/history.PNG)
+
+![Notifications](assets/screenshots/notifications.PNG)
+![Profile](assets/screenshots/profile.PNG)
+![Settings](assets/screenshots/settings.PNG)
 
 ---
 
