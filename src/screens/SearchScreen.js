@@ -184,11 +184,11 @@ const styles = StyleSheet.create({
     shadowColor: '#000', shadowOpacity: 0.05, shadowRadius: 8, elevation: 2,
   },
   resultCardImg: {
+    //height:130,
     width: '100%',
-    aspectRatio: 1672 / 941,
+    aspectRatio: 16/9,
     alignItems: 'flex-start',
     justifyContent: 'flex-end',
-    padding: 12,
     position: 'relative',
     overflow: 'hidden',
   },
