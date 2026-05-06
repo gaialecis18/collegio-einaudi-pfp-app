@@ -95,19 +95,6 @@ npx expo start
   <img src="assets/screenshots/settings.PNG" width="260"/>
 </p>
 
-![Login](assets/screenshots/login.PNG)
-
-![HomePage](assets/screenshots/home_2.PNG)
-![HomePage](assets/screenshots/home_1.PNG)
-
-![Catalogue](assets/screenshots/catalogue.PNG)
-![Course Detail](assets/screenshots/coursepage.PNG)
-![History](assets/screenshots/history.PNG)
-
-![Notifications](assets/screenshots/notifications.PNG)
-![Profile](assets/screenshots/profile.PNG)
-![Settings](assets/screenshots/settings.PNG)
-
 ---
 
 ## 🎯 Purpose of the Project
