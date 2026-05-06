@@ -136,11 +136,11 @@ export default function CourseDetailScreen({ route, navigation }) {
           <View style={styles.infoRow}>
             <View style={styles.infoItem}>
               <Ionicons name="location-outline" size={16} color={COLORS.textLight} />
-              <Text style={styles.infoText}>Venue: {course.location}</Text>
+              <Text style={styles.infoText}>{course.location}</Text>
             </View>
             <View style={styles.infoItem}>
               <Ionicons name="business-outline" size={16} color={COLORS.textLight} />
-              <Text style={styles.infoText}>Building: {course.building}</Text>
+              <Text style={styles.infoText}>{course.building}</Text>
             </View>
           </View>
           <View style={styles.infoRow}>

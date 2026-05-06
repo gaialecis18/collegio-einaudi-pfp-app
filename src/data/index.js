@@ -121,7 +121,7 @@ export const COURSES = [
     rating: 4.8,
     duration: '12 hours',
     location: 'Sala Polivalente',
-    building: 'Main Building',
+    building: 'Section Po',
     schedule: 'Wed, 20:00-21:30',
     lessons: buildLessons(
       ['Oct 12', 'Oct 19', 'Oct 26', 'Nov 2', 'Nov 9', 'Nov 16', 'Nov 23', 'Nov 30'],
@@ -152,7 +152,7 @@ export const COURSES = [
     rating: 4.6,
     duration: '10 hours',
     location: 'Biblioteca',
-    building: 'Library Building',
+    building: 'Section San Paolo',
     schedule: 'Thu, 18:00-19:30',
     lessons: buildLessons(
       ['Oct 18', 'Oct 25', 'Nov 1', 'Nov 8', 'Nov 15', 'Nov 22', 'Nov 29'],
@@ -183,7 +183,7 @@ export const COURSES = [
     rating: 4.9,
     duration: '14 hours',
     location: 'Online',
-    building: 'Virtual Campus',
+    building: '--',
     schedule: 'Fri, 17:00-18:30',
     lessons: buildLessons(
       ['Oct 20', 'Oct 27', 'Nov 3', 'Nov 10', 'Nov 17', 'Nov 24', 'Dec 1', 'Dec 15', 'Jan 12'],
@@ -214,7 +214,7 @@ export const COURSES = [
     rating: 4.7,
     duration: '16 hours',
     location: 'Online',
-    building: 'Virtual Campus',
+    building: '--',
     schedule: 'Mon, 19:00-21:00',
     lessons: buildLessons(
       ['Nov 5', 'Nov 12', 'Nov 19', 'Nov 26', 'Dec 3', 'Dec 10', 'Dec 17', 'Jan 14'],
@@ -245,7 +245,7 @@ export const COURSES = [
     rating: 4.5,
     duration: '12 hours',
     location: 'Sala Lettura',
-    building: 'Library Building',
+    building: 'Section Crocetta',
     schedule: 'Tue, 18:30-20:00',
     lessons: buildLessons(
       ['Nov 10', 'Nov 17', 'Nov 24', 'Dec 1', 'Dec 8', 'Dec 15', 'Jan 12', 'Jan 19'],
@@ -276,7 +276,7 @@ export const COURSES = [
     rating: 4.8,
     duration: '10 hours',
     location: 'Sala Polivalente',
-    building: 'Main Building',
+    building: 'Section Mole',
     schedule: 'Sat, 10:00-12:00',
     lessons: buildLessons(
       ['Nov 15', 'Nov 22', 'Nov 29', 'Dec 6', 'Dec 13'],
@@ -307,7 +307,7 @@ export const COURSES = [
     rating: 4.6,
     duration: '8 hours',
     location: 'Palestra',
-    building: 'Sports Building',
+    building: 'Section Mole',
     schedule: 'Wed, 17:00-19:00',
     lessons: buildLessons(
       ['Nov 20', 'Nov 27', 'Dec 4', 'Dec 11'],
@@ -338,7 +338,7 @@ export const COURSES = [
     rating: 4.7,
     duration: '12 hours',
     location: 'Biblioteca',
-    building: 'Library Building',
+    building: 'Section San Paolo',
     schedule: 'Thu, 16:00-18:00',
     lessons: buildLessons(
       ['Dec 1', 'Dec 8', 'Dec 15', 'Dec 22', 'Jan 12', 'Jan 19'],
@@ -369,7 +369,7 @@ export const COURSES = [
     rating: 4.9,
     duration: '20 hours',
     location: 'Online',
-    building: 'Virtual Campus',
+    building: null,
     schedule: 'Fri, 14:00-16:00',
     lessons: buildLessons(
       ['Dec 10', 'Dec 17', 'Dec 24', 'Jan 7', 'Jan 14', 'Jan 21', 'Jan 28', 'Feb 4', 'Feb 11', 'Feb 18'],
@@ -400,7 +400,7 @@ export const COURSES = [
     rating: 4.5,
     duration: '14 hours',
     location: 'Sala Polivalente',
-    building: 'Main Building',
+    building: 'Section Valentino',
     schedule: 'Mon, 18:00-20:00',
     lessons: buildLessons(
       ['Dec 15', 'Dec 22', 'Jan 12', 'Jan 19', 'Jan 26', 'Feb 2', 'Feb 9'],
@@ -431,7 +431,7 @@ export const COURSES = [
     rating: 4.8,
     duration: '18 hours',
     location: 'Sala Polivalente',
-    building: 'Main Building',
+    building: 'Section Po',
     schedule: 'Tue, 20:00-22:00',
     lessons: buildLessons(
       ['Jan 10', 'Jan 17', 'Jan 24', 'Jan 31', 'Feb 7', 'Feb 14', 'Feb 21', 'Feb 28', 'Mar 7'],
