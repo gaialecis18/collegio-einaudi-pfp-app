@@ -99,9 +99,13 @@ export default function CourseDetailScreen({ route, navigation }) {
           {/* Professor */}
           <View style={styles.professorRow}>
             <View style={styles.professorAvatar}>
-              <Ionicons name="person" size={20} color="#fff" />
+              {course.professorImage ? (
+                <Image source={course.professorImage} style={styles.professorAvatarImage} resizeMode="cover" />
+              ) : (
+                <Ionicons name="person" size={20} color="#fff" />
+              )}
             </View>
-            <View>
+            <View style={styles.professorText}>
               <Text style={styles.professorName}>{course.professor}</Text>
               <Text style={styles.professorTitle}>{course.professorTitle}</Text>
             </View>
@@ -216,12 +220,15 @@ const styles = StyleSheet.create({
   description: { fontSize: 13, color: COLORS.textSecondary, lineHeight: 20, marginBottom: 20 },
   professorRow: {
     flexDirection: 'row', alignItems: 'center',
-    marginBottom: 20, padding: 14, borderRadius: 12, backgroundColor: '#F8F8F8',
+    marginBottom: 20, padding: 14, borderRadius: 12, backgroundColor: '#F8F8F8', borderColor: COLORS.border, borderWidth:1
   },
   professorAvatar: {
     width: 44, height: 44, borderRadius: 22,
     backgroundColor: '#7F8C8D', alignItems: 'center', justifyContent: 'center', marginRight: 12,
+    overflow: 'hidden',
   },
+  professorAvatarImage: { width: '100%', height: '100%' },
+  professorText: { flex: 1 },
   professorName: { fontSize: 14, fontWeight: '700', color: COLORS.dark },
   professorTitle: { fontSize: 12, color: COLORS.textSecondary },
   enrollBtn: {
