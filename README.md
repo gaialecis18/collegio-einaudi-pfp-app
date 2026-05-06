@@ -1,5 +1,7 @@
 # Collegio Einaudi App
 
+![Collegio Einaudi App Cover](./assets/cover.png)
+
 Mobile application prototype designed to improve the student experience by providing course discovery, activity tracking, and personalized navigation in a clean and intuitive interface.
 
 ---
