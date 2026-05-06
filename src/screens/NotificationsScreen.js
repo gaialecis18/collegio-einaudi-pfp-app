@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, Text, ScrollView, TouchableOpacity, StyleSheet,
+  View, Text, ScrollView, TouchableOpacity, StyleSheet, Image,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -24,7 +24,11 @@ function NotifCard({ notif, navigation }) {
             onPress={() => notif.course && navigation.navigate('CourseDetail', { course: notif.course })}
           >
             <View style={styles.notifImageBox}>
-              <Ionicons name="globe-outline" size={32} color="rgba(255,255,255,0.7)" />
+              {notif.course?.image ? (
+                <Image source={notif.course.image} style={styles.notifImage} resizeMode="cover" />
+              ) : (
+                <Ionicons name="globe-outline" size={32} color="rgba(255,255,255,0.7)" />
+              )}
             </View>
             <View style={styles.notifDetailsText}>
               <View style={styles.newArrivalBadge}>
@@ -97,6 +101,7 @@ const styles = StyleSheet.create({
     width: 80, height: 80, backgroundColor: '#1A1A2E',
     alignItems: 'center', justifyContent: 'center',
   },
+  notifImage: { width: '100%', height: '100%' },
   notifDetailsText: { flex: 1, padding: 10 },
   newArrivalBadge: {
     backgroundColor: COLORS.primary, borderRadius: 6,

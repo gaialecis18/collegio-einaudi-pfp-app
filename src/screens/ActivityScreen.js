@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  View, Text, ScrollView, TouchableOpacity, StyleSheet,
+  View, Text, ScrollView, TouchableOpacity, StyleSheet, Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -59,6 +59,13 @@ export default function ActivityScreen({ navigation }) {
   const student = getStudentProfile();
   const items = getActivityItemsByTab(activeTab);
 
+  const handleCertificatePress = () => {
+    Alert.alert(
+      'Certificate',
+      'In order to obtain the certificate, you have to attend all courses.'
+    );
+  };
+
   return (
     <SafeAreaView style={styles.container} edges={ ['left', 'right']}>
       <ScrollView showsVerticalScrollIndicator={false} contentInsetAdjustmentBehavior="automatic">
@@ -87,7 +94,7 @@ export default function ActivityScreen({ navigation }) {
             <Text style={styles.statLabel}>TOTAL SPENT</Text>
           </View>
           <View style={styles.statBox}>
-            <TouchableOpacity style={styles.certBtn}>
+            <TouchableOpacity style={styles.certBtn} onPress={handleCertificatePress}>
               <Ionicons name="ribbon-outline" size={14} color={COLORS.primary} />
               <Text style={styles.certText}>Certificate</Text>
             </TouchableOpacity>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  View, Text, ScrollView, TouchableOpacity, StyleSheet,
+  View, Text, ScrollView, TouchableOpacity, StyleSheet, Image,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -32,6 +32,12 @@ function CourseCard({ course, onPress }) {
   return (
     <TouchableOpacity style={styles.courseCard} onPress={onPress} activeOpacity={0.85}>
       <View style={[styles.courseCardImage, { backgroundColor: course.id === '2' ? '#2C3E50' : '#1A1A2E' }]}>
+        {!!course.image && (
+          <>
+            <Image source={course.image} style={styles.courseCardArtwork} resizeMode="cover" />
+            <View style={styles.courseCardImageScrim} />
+          </>
+        )}
         <View style={styles.courseCardOverlay}>
           <View style={[styles.catTag, { backgroundColor: c.bg }]}>
             <Text style={[styles.catTagText, { color: c.text }]}>{course.category}</Text>
@@ -73,7 +79,9 @@ function CurrentCourseItem({ course, onPress }) {
       <View style={styles.currentCourseDot} />
       <View style={{ flex: 1 }}>
         <Text style={styles.currentCourseTitle} numberOfLines={1}>{course.title}</Text>
-        <Text style={styles.currentCourseProf}>{course.professor} • {course.location}</Text>
+        <Text style={styles.currentCourseProf} numberOfLines={1}>
+          {course.professor} • {course.location} • {course.building}
+        </Text>
         <View style={styles.progressBarBg}>
           <View style={[styles.progressBarFill, { width: `${course.progress * 100}%` }]} />
         </View>
@@ -197,7 +205,9 @@ const styles = StyleSheet.create({
     borderWidth: 1, borderColor: COLORS.border,
     shadowColor: '#000', shadowOpacity: 0.05, shadowRadius: 8, shadowOffset: { width: 0, height: 2 }, elevation: 2,
   },
-  courseCardImage: { height: 130, justifyContent: 'flex-end' },
+  courseCardImage: { height: 130, justifyContent: 'flex-end', position: 'relative' },
+  courseCardArtwork: { ...StyleSheet.absoluteFillObject, width: '100%', height: '100%' },
+  courseCardImageScrim: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(0,0,0,0.22)' },
   courseCardOverlay: {
     flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end',
     padding: 12,

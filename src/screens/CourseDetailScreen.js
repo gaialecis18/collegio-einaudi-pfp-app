@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  View, Text, ScrollView, TouchableOpacity, StyleSheet, Alert,
+  View, Text, ScrollView, TouchableOpacity, StyleSheet, Alert, Image,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -72,10 +72,14 @@ export default function CourseDetailScreen({ route, navigation }) {
         <View style={[styles.heroImage, {
           backgroundColor: cc.heroBg
         }]}>
-          <Ionicons
-            name={cc.icon}
-            size={60} color="rgba(255,255,255,0.15)"
-          />
+          {course.image ? (
+            <Image source={course.image} style={styles.heroArtwork} resizeMode="cover" />
+          ) : (
+            <Ionicons
+              name={cc.icon}
+              size={60} color="rgba(255,255,255,0.15)"
+            />
+          )}
         </View>
 
         <View style={styles.body}>
@@ -128,21 +132,27 @@ export default function CourseDetailScreen({ route, navigation }) {
           <View style={styles.infoRow}>
             <View style={styles.infoItem}>
               <Ionicons name="location-outline" size={16} color={COLORS.textLight} />
-              <Text style={styles.infoText}>{course.location}</Text>
+              <Text style={styles.infoText}>Venue: {course.location}</Text>
             </View>
+            <View style={styles.infoItem}>
+              <Ionicons name="business-outline" size={16} color={COLORS.textLight} />
+              <Text style={styles.infoText}>Building: {course.building}</Text>
+            </View>
+          </View>
+          <View style={styles.infoRow}>
             <View style={styles.infoItem}>
               <Ionicons name="time-outline" size={16} color={COLORS.textLight} />
               <Text style={styles.infoText}>{course.schedule}</Text>
+            </View>
+            <View style={styles.infoItem}>
+              <Ionicons name="time-outline" size={16} color={COLORS.textLight} />
+              <Text style={styles.infoText}>{course.duration}</Text>
             </View>
           </View>
           <View style={styles.infoRow}>
             <View style={styles.infoItem}>
               <Ionicons name="people-outline" size={16} color={COLORS.textLight} />
               <Text style={styles.infoText}>{course.enrolled} enrolled</Text>
-            </View>
-            <View style={styles.infoItem}>
-              <Ionicons name="time-outline" size={16} color={COLORS.textLight} />
-              <Text style={styles.infoText}>{course.duration}</Text>
             </View>
           </View>
 
@@ -194,8 +204,9 @@ export default function CourseDetailScreen({ route, navigation }) {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
   heroImage: {
-    height: 200, alignItems: 'center', justifyContent: 'center',
+    height: 200, alignItems: 'center', justifyContent: 'center', overflow: 'hidden',
   },
+  heroArtwork: { width: '100%', height: '100%' },
   body: { padding: 20 },
   tagsRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 12 },
   tag: { borderRadius: 8, paddingHorizontal: 10, paddingVertical: 4 },

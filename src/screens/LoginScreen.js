@@ -38,7 +38,7 @@ export default function LoginScreen({ navigation }) {
               <Ionicons name="person-outline" size={18} color={COLORS.textLight} style={styles.inputIcon} />
               <TextInput
                 style={styles.input}
-                placeholder="m.rossi@gmail.it"
+                placeholder="n.lastname@gmail.it"
                 placeholderTextColor={COLORS.textLight}
                 value={email}
                 onChangeText={setEmail}

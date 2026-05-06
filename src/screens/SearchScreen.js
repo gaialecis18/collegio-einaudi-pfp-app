@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  View, Text, ScrollView, TouchableOpacity, StyleSheet, TextInput,
+  View, Text, ScrollView, TouchableOpacity, StyleSheet, TextInput, Image,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -19,8 +19,20 @@ function CourseResultCard({ course, onPress }) {
 
   return (
     <TouchableOpacity style={styles.resultCard} onPress={onPress} activeOpacity={0.85}>
-      <View style={[styles.resultCardImg, { backgroundColor: categoryMeta.cardBg }]}>
-        <Ionicons name={categoryMeta.icon} size={28} color="rgba(255,255,255,0.5)" />
+      <View
+        style={[
+          styles.resultCardImg,
+          { backgroundColor: course.image ? '#fff' : categoryMeta.cardBg },
+        ]}
+      >
+        {course.image ? (
+          <>
+            <Image source={course.image} style={styles.resultCardImage} resizeMode="cover" />
+            <View style={styles.resultCardImageScrim} />
+          </>
+        ) : (
+          <Ionicons name={categoryMeta.icon} size={28} color="rgba(255,255,255,0.5)" />
+        )}
         {course.id === '7' && (
           <View style={styles.newWorkshopBadge}>
             <Text style={styles.newWorkshopText}>NEW WORKSHOP</Text>
@@ -29,7 +41,7 @@ function CourseResultCard({ course, onPress }) {
       </View>
       <View style={styles.resultCardBody}>
         <Text style={styles.resultCardTitle}>{course.title}</Text>
-        <Text style={styles.resultCardDur}>{course.duration}</Text>
+        <Text style={styles.resultCardDur}>{course.duration} • {course.building}</Text>
         <Text style={styles.resultCardDesc} numberOfLines={3}>{course.description}</Text>
         <View style={styles.resultCardFooter}>
           <View style={styles.resultEnrollRow}>
@@ -144,7 +156,7 @@ const styles = StyleSheet.create({
   searchRow: {
     flexDirection: 'row', alignItems: 'center',
     marginHorizontal: 20, marginBottom: 16,
-    backgroundColor: '#F5F5F5', borderRadius: 12, paddingHorizontal: 14, paddingVertical: 10,
+    backgroundColor: '#e1e0e0c2', borderRadius: 12, paddingHorizontal: 14, paddingVertical: 10,
   },
   searchInput: { flex: 1, fontSize: 13, color: COLORS.dark },
   filterIconBtn: { marginLeft: 8 },
@@ -171,7 +183,21 @@ const styles = StyleSheet.create({
     borderWidth: 1, borderColor: COLORS.border,
     shadowColor: '#000', shadowOpacity: 0.05, shadowRadius: 8, elevation: 2,
   },
-  resultCardImg: { height: 120, alignItems: 'flex-start', justifyContent: 'flex-end', padding: 12 },
+  resultCardImg: {
+    width: '100%',
+    aspectRatio: 1672 / 941,
+    alignItems: 'flex-start',
+    justifyContent: 'flex-end',
+    padding: 12,
+    position: 'relative',
+    overflow: 'hidden',
+  },
+  resultCardImage: {
+    ...StyleSheet.absoluteFillObject,
+    width: '100%',
+    height: '100%',
+  },
+  resultCardImageScrim: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(0,0,0,0.22)' },
   newWorkshopBadge: { backgroundColor: COLORS.primary, borderRadius: 8, paddingHorizontal: 10, paddingVertical: 4 },
   newWorkshopText: { color: '#fff', fontSize: 10, fontWeight: '700' },
   resultCardBody: { backgroundColor: '#fff', padding: 14 },

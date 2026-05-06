@@ -5,9 +5,12 @@ import {
   ScrollView,
   TouchableOpacity,
   StyleSheet,
+  Image,
+  Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 import {
   COLORS,
   getStudentCurrentCourses,
@@ -19,6 +22,13 @@ export default function ProfileScreen({ navigation }) {
   const currentCourses = getStudentCurrentCourses();
   const progress = student.progress;
 
+  const handleCertificatePress = () => {
+    Alert.alert(
+      'Certificate',
+      'In order to obtain the certificate, you have to attend all courses.'
+    );
+  };
+
   return (
     <SafeAreaView style={styles.container} edges={['left', 'right']}>
       <ScrollView
@@ -26,10 +36,19 @@ export default function ProfileScreen({ navigation }) {
         contentInsetAdjustmentBehavior="automatic"
       >
         {/* Profile Card */}
-        <View style={styles.profileCard}>
+        <LinearGradient
+          colors={['#F5F5F5', '#9B1B20', '#2E1A1A']}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 0, y: 1 }}
+          style={styles.profileCard}
+        >
           <View style={styles.avatarWrapper}>
             <View style={styles.avatar}>
-              <Ionicons name="person" size={40} color="#fff" />
+              {student.avatar ? (
+                <Image source={student.avatar} style={styles.avatarImage} resizeMode="cover" />
+              ) : (
+                <Ionicons name="person" size={40} color="#fff" />
+              )}
             </View>
             <View style={styles.avatarBadge}>
               <Ionicons name="checkmark" size={10} color="#fff" />
@@ -54,11 +73,11 @@ export default function ProfileScreen({ navigation }) {
             <Ionicons
               name="settings-outline"
               size={16}
-              color={COLORS.primary}
+              color="#fff"
             />
             <Text style={styles.settingsBtnText}>Settings</Text>
           </TouchableOpacity>
-        </View>
+        </LinearGradient>
 
         {/* Academic Progress */}
         <View style={styles.section}>
@@ -84,7 +103,7 @@ export default function ProfileScreen({ navigation }) {
 
           <View style={styles.totalRow}>
             <Text style={styles.totalHrs}>{student.totalHours}</Text>
-            <TouchableOpacity style={styles.certBtn}>
+            <TouchableOpacity style={styles.certBtn} onPress={handleCertificatePress}>
               <Ionicons
                 name="ribbon-outline"
                 size={13}
@@ -112,12 +131,12 @@ export default function ProfileScreen({ navigation }) {
             >
               <View style={styles.courseRowLeft}>
                 <View style={styles.courseRowDot} />
-                <View>
+                <View style={styles.courseRowText}>
                   <Text style={styles.courseRowTitle} numberOfLines={1}>
                     {c.title}
                   </Text>
-                  <Text style={styles.courseRowProf}>
-                    {c.professor} • {c.location}
+                  <Text style={styles.courseRowProf} numberOfLines={1}>
+                    {c.professor} • {c.location} • {c.building}
                   </Text>
                 </View>
               </View>
@@ -137,9 +156,9 @@ const styles = StyleSheet.create({
   },
   profileCard: {
     alignItems: 'center',
-    paddingVertical: 24,
-    borderBottomWidth: 1,
-    borderBottomColor: COLORS.border,
+    paddingTop: 30,
+    paddingBottom: 28,
+    paddingHorizontal: 20,
   },
   avatarWrapper: {
     position: 'relative',
@@ -149,11 +168,16 @@ const styles = StyleSheet.create({
     width: 90,
     height: 90,
     borderRadius: 45,
-    backgroundColor: '#7F8C8D',
+    backgroundColor: 'rgba(255,255,255,0.18)',
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 3,
-    borderColor: COLORS.primary,
+    borderColor: 'rgba(255,255,255,0.88)',
+    overflow: 'hidden',
+  },
+  avatarImage: {
+    width: '100%',
+    height: '100%',
   },
   avatarBadge: {
     position: 'absolute',
@@ -162,7 +186,7 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     borderRadius: 12,
-    backgroundColor: COLORS.primary,
+    backgroundColor: COLORS.success,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 2,
@@ -171,7 +195,7 @@ const styles = StyleSheet.create({
   profileName: {
     fontSize: 20,
     fontWeight: '700',
-    color: COLORS.dark,
+    color: '#fff',
     marginBottom: 8,
   },
   badgeRow: {
@@ -179,10 +203,12 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   badge: {
-    backgroundColor: COLORS.primary,
+    backgroundColor: 'rgba(255,255,255,0.18)',
     borderRadius: 12,
     paddingHorizontal: 12,
     paddingVertical: 4,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.28)',
   },
   badgeText: {
     color: '#fff',
@@ -196,14 +222,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 6,
     borderWidth: 1,
-    borderColor: COLORS.primary,
+    borderColor: 'rgba(255,255,255,0.55)',
+    backgroundColor: 'rgba(255,255,255,0.14)',
     borderRadius: 10,
     paddingHorizontal: 14,
     paddingVertical: 8,
   },
   settingsBtnText: {
     fontSize: 13,
-    color: COLORS.primary,
+    color: '#fff',
     fontWeight: '600',
   },
   section: {
@@ -317,6 +344,9 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: COLORS.primary,
     marginRight: 12,
+  },
+  courseRowText: {
+    flex: 1,
   },
   courseRowTitle: {
     fontSize: 13,
